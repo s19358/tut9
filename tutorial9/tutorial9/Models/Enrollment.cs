@@ -9,10 +9,10 @@ namespace tutorial9.Models
         {
             Student = new HashSet<Student>();
         }
-
+        //[Key] PK
         public int IdEnrollment { get; set; }
         public int Semester { get; set; }
-        public int IdStudy { get; set; }
+        public int IdStudy { get; set; } //FK
         public DateTime StartDate { get; set; }
 
         public virtual Studies IdStudyNavigation { get; set; }

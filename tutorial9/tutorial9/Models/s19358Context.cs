@@ -14,7 +14,7 @@ namespace tutorial9.Models
             : base(options)
         {
         }
-
+        //our tables in db
         public virtual DbSet<Enrollment> Enrollment { get; set; }
         public virtual DbSet<Student> Student { get; set; }
         public virtual DbSet<Studies> Studies { get; set; }
@@ -30,9 +30,12 @@ namespace tutorial9.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            //FluentAPi => validation for all of the tables
+            //we could specify them directly on the model with annotations
             modelBuilder.Entity<Enrollment>(entity =>
             {
-                entity.HasKey(e => e.IdEnrollment)
+                entity.HasKey(e => e.IdEnrollment)  //PK
                     .HasName("Enrollment_pk");
 
                 entity.Property(e => e.IdEnrollment).ValueGeneratedNever();
@@ -56,8 +59,8 @@ namespace tutorial9.Models
                 entity.Property(e => e.BirthDate).HasColumnType("date");
 
                 entity.Property(e => e.FirstName)
-                    .IsRequired()
-                    .HasMaxLength(100);
+                    .IsRequired()  //not null
+                    .HasMaxLength(100); //varchar(100)
 
                 entity.Property(e => e.LastName)
                     .IsRequired()

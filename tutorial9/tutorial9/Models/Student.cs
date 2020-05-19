@@ -15,6 +15,6 @@ namespace tutorial9.Models
         public string Salt { get; set; }
         public string Orijinalpass { get; set; }
 
-        public virtual Enrollment IdEnrollmentNavigation { get; set; }
+        public virtual Enrollment IdEnrollmentNavigation { get; set; }  //virtual=> can be overriden in subclasses
     }
 }
