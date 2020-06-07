@@ -57,7 +57,9 @@ namespace tutorial9.Controllers
             if (res == true)
             {
                 var res2 = _dbcontext.Student.Find(student.IndexNumber);
+                res2.FirstName = student.FirstName;
                 res2.LastName = student.LastName;
+                res2.BirthDate=student.BirthDate;
                 _dbcontext.SaveChanges();
                 return Ok("Succesfully updated!");
 
